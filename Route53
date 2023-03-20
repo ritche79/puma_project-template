@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  AWS CloudFormation Sample Template Route53: Sample template showing how to
+  create an Amazon Route 53 hosted zone that will be used to create reord set
+
+
+
+Resources:
+  myDNSRecordHostedZone: 
+    Type: "AWS::Route53::HostedZone"
+    Properties: 
+      HostedZoneConfig: 
+        Comment: 'My hosted zone for example.com'
+      Name: 'puma.cloudspacellc.com'
+Outputs:
+  VpcId:
+    Description: hosted zone 
+    Value: !Ref myDNSRecordHostedZone
+    Export:
+      Name: !Sub '${AWS::StackName}-Hostedzoned-id'
